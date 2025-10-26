@@ -1,7 +1,7 @@
 // ===== Supabase — подключение напрямую (без сервера)
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
 
-// === Твои данные Supabase ===
+// === Supabase ===
 const SUPABASE_URL = 'https://pmnhrabammafeenoojhz.supabase.co'
 const SUPABASE_ANON_KEY =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtbmhyYWJhbW1hZmVlbm9vamh6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA3MDMwNDEsImV4cCI6MjA3NjI3OTA0MX0.zf0x99RHosYdZCnHQ0ORR6izKxP7C2E_pcJQO_SYKBw'
