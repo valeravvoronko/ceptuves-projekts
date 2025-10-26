@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Выпечка</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <meta name="description" content="Лучшая выпечка в Елгаве">
+</head>
+<body>
+
+  <header class="reveal">
+    <img src="img/01-Logo.svg" alt="Изображение логотипа" class="logo-animated">
+  </header>
+
+  <nav class="nav-main reveal">
+    <ul>
+      <li><a href="#about">О нас</a></li>
+      <li><a href="#news">Новости</a></li>
+      <li><a href="#menu">Меню</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- 1. «Специальный заказ» — с параллаксом -->
+    <section id="about" class="secition_about parallax-target reveal">
+      <div class="secition_about__block">
+        <div class="secition_about__border">
+          <h1 class="secition_about_tittle">Специальный заказ</h1>
+          <p class="secition_about_text">
+            Мы вынуждены отталкиваться от того, что социально-экономическое развитие требует
+            определения и уточнения существующих финансовых и административных условий. Господа,
+            граница обучения кадров создаёт предпосылки для переосмысления внешнеэкономических политик.
+          </p>
+
+          <!-- CTA-кнопка в первый экран -->
+          <a href="#order" class="btn btn--primary cta">Заказать</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Описание + иконки -->
+    <section id="menu" class="secition-description reveal">
+      <div class="secition_description_icon_box">
+        <img class="icon-fx" src="icons/01-icon.svg" alt="Кафе">
+        <img class="icon-fx" src="icons/02-icon.svg" alt="Латтэ">
+        <img class="icon-fx" src="icons/03-icon.svg" alt="Кофе">
+      </div>
+      <div class="secition_desctiption__text">
+        <h2 class="secition_desctiption__tittle">
+          Выпечка — <span class="red">это</span> вкусно!
+        </h2>
+        <p class="secition_description__text">
+          Вот вам яркий пример современных тенденций — синтетическое тестирование играет важную роль...
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. НОВЫЙ БЛОК: Заказ онлайн (Supabase) -->
+    <section id="order" class="order-section reveal">
+      <h3 class="order-title">Заказ онлайн</h3>
+      <form id="order-form" class="order-form">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <textarea name="message" rows="4" placeholder="Что приготовить? Время/комментарий" required></textarea>
+        <button class="btn btn--primary" type="submit">Отправить заказ</button>
+        <p id="order-result" class="order-result" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- 4. Карта -->
+    <section id="contacts" class="secition_map reveal">
+      <h3 class="secition_map_tittle">ГДЕ МЫ</h3>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2192.7188335145984!2d23.744049515966054!3d56.66189088080623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46ef25d4e19196f3%3A0xe829c162c5acb26a!2sRiga%20Sushi!5e0!3m2!1sru!2slv!4v1661266584838!5m2!1sru!2slv"
+        width="900" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+  </main>
+
+  <footer class="reveal" id="news">
+    <hr>
+    <nav>
+      <ul>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#news">Новости</a></li>
+        <li><a href="#menu">Меню</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+    </nav>
+    <li><a href="https://www.facebook.com/vaeeeera">(c) Voronko</a></li>
+  </footer>
+
+  <!-- JS: эффекты + Supabase -->
+  <script type="module" src="js/script.js"></script>
+</body>
+</html>
+
+<script type="module" src="js/script.js"></script>
