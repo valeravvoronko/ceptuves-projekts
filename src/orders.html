@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Pēdējie pasūtījumi — pārbaude</title>
+  <style>
+    body{font-family:Arial, sans-serif; max-width:900px; margin:40px auto; padding:0 16px}
+    h1{font-size:22px; margin-bottom:12px}
+    table{width:100%; border-collapse:collapse; margin-top:10px}
+    th,td{padding:10px; border-bottom:1px solid #ddd; text-align:left}
+    thead th{background:#fafafa}
+    .muted{color:#666; font-size:14px; margin-bottom:15px}
+  </style>
+</head>
+<body>
+  <h1>Pēdējie pasūtījumi (pēdējās 7 dienas)</h1>
+  <p class="muted">Dati tiek lasīti tieši no Supabase. Lapa paredzēta pasūtījumu pārbaudei.</p>
+
+  <table id="orders">
+    <thead>
+      <tr><th>ID</th><th>Vārds</th><th>E-pasts</th><th>Ziņa</th><th>Datums</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+
+    const SUPABASE_URL = 'https://pmnhrabammafeenoojhz.supabase.co'
+    const SUPABASE_ANON_KEY = 'YOeyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtbmhyYWJhbW1hZmVlbm9vamh6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA3MDMwNDEsImV4cCI6MjA3NjI3OTA0MX0'
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+    async function load() {
+      const { data, error } = await supabase
+        .from('orders')
+        .select('id,name,email,message,created_at')
+        .order('created_at', { ascending:false })
+        .limit(20)
+
+      if (error) {
+        document.querySelector('tbody').innerHTML = `<tr><td colspan="5">Kļūda: ${error.message}</td></tr>`
+        return
+      }
+
+      const rows = data.map(r => `
+        <tr>
+          <td>${r.id}</td>
+          <td>${r.name}</td>
+          <td>${r.email}</td>
+          <td>${r.message}</td>
+          <td>${new Date(r.created_at).toLocaleString()}</td>
+        </tr>
+      `).join('')
+
+      document.querySelector('tbody').innerHTML = rows || 
+        `<tr><td colspan="5">Nav datu — iesniedziet formu</td></tr>`
+    }
+
+    load()
+  </script>
+</body>
+</html>
